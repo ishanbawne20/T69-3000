@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Juno.mp3-6fb90c1839a788290fe202ff42e8ec34.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Juno.mp3"
+dest_files=[ "res://.import/Juno.mp3-6fb90c1839a788290fe202ff42e8ec34.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

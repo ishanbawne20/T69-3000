@@ -1,0 +1,117 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/Enemy_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Env/Env.tres" type="TileSet" id=3]
+[ext_resource path="res://Enemies/Enemy_2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Env/Spawner.gd" type="Script" id=5]
+[ext_resource path="res://Env/Chargeup.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Env/healthCrate.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Audio/Juno.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Fonts/comic.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Env/UI.gd" type="Script" id=10]
+
+[sub_resource type="Environment" id=1]
+glow_enabled = true
+glow_bloom = 0.27
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0627451, 0.929412, 0.443137, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0901961, 0.0862745, 0.0862745, 0.521569 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=4]
+size = 34
+outline_color = Color( 0.0627451, 0.0588235, 0.0588235, 1 )
+use_filter = true
+font_data = ExtResource( 9 )
+
+[node name="World" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Base" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+format = 1
+tile_data = PoolIntArray( -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 2, 0, -65531, 2, 0, -65530, 2, 0, -65529, 2, 0, -65528, 2, 0, -65527, 2, 0, -65526, 2, 0, -65525, 2, 0, -65524, 2, 0, -65523, 2, 0, -65522, 2, 0, -65521, 2, 0, -65520, 2, 0, 0, 6, 0, 1, 6, 0, 2, 6, 0, 3, 6, 0, 4, 6, 0, 5, 6, 0, 6, 6, 0, 7, 6, 0, 8, 6, 0, 9, 6, 0, 10, 6, 0, 11, 6, 0, 12, 6, 0, 13, 6, 0, 14, 6, 0, 15, 6, 0, 16, 4, 0, 65536, 6, 0, 65537, 1, 0, 65538, 2, 0, 65539, 3, 0, 65540, 2, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 3, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 3, 0, 65551, 6, 0, 65552, 1, 0, 131072, 6, 0, 131073, 3, 0, 131074, 3, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 3, 0, 131082, 3, 0, 131083, 3, 0, 131084, 4, 0, 131085, 4, 0, 131086, 2, 0, 131087, 6, 0, 131088, 1, 0, 196608, 6, 0, 196609, 1, 0, 196610, 3, 0, 196611, 1, 0, 196612, 3, 0, 196613, 3, 0, 196614, 3, 0, 196615, 3, 0, 196616, 3, 0, 196617, 3, 0, 196618, 3, 0, 196619, 3, 0, 196620, 3, 0, 196621, 4, 0, 196622, 1, 0, 196623, 6, 0, 196624, 2, 0, 262144, 6, 0, 262145, 4, 0, 262146, 3, 0, 262147, 2, 0, 262148, 3, 0, 262149, 3, 0, 262150, 1, 0, 262151, 1, 0, 262152, 3, 0, 262153, 2, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 2, 0, 262159, 6, 0, 262160, 2, 0, 327680, 6, 0, 327681, 3, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0, 327685, 3, 0, 327686, 3, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 2, 0, 327691, 2, 0, 327692, 2, 0, 327693, 1, 0, 327694, 2, 0, 327695, 6, 0, 327696, 3, 0, 393216, 6, 0, 393217, 3, 0, 393218, 2, 0, 393219, 2, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0, 393226, 2, 0, 393227, 4, 0, 393228, 2, 0, 393229, 1, 0, 393230, 2, 0, 393231, 6, 0, 393232, 3, 0, 458752, 6, 0, 458753, 2, 0, 458754, 2, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 458763, 2, 0, 458764, 2, 0, 458765, 1, 0, 458766, 3, 0, 458767, 6, 0, 458768, 3, 0, 589823, 2, 0, 524288, 6, 0, 524289, 4, 0, 524290, 3, 0, 524291, 1, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 524295, 3, 0, 524296, 3, 0, 524297, 3, 0, 524298, 3, 0, 524299, 3, 0, 524300, 3, 0, 524301, 3, 0, 524302, 3, 0, 524303, 6, 0, 524304, 3, 0, 655359, 2, 0, 589824, 6, 0, 589825, 6, 0, 589826, 6, 0, 589827, 6, 0, 589828, 6, 0, 589829, 6, 0, 589830, 6, 0, 589831, 6, 0, 589832, 6, 0, 589833, 6, 0, 589834, 6, 0, 589835, 6, 0, 589836, 6, 0, 589837, 6, 0, 589838, 6, 0, 589839, 6, 0, 589840, 3, 0, 655373, 3, 0, 655374, 3, 0 )
+
+[node name="Lev_1" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+format = 1
+tile_data = PoolIntArray( 65544, 11, 0, 131074, 9, 0, 196619, 12, 0, 196621, 12, 0, 327682, 10, 0, 327685, 9, 0, 393229, 9, 0, 458756, 12, 0, 458761, 11, 0, 524301, 12, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 300 )
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource( 5 )
+Enemy1 = ExtResource( 2 )
+Enemy2 = ExtResource( 4 )
+ChargeUp = ExtResource( 6 )
+HealthCrate = ExtResource( 7 )
+
+[node name="1" type="Position2D" parent="Spawner"]
+position = Vector2( 823.058, 131.199 )
+
+[node name="2" type="Position2D" parent="Spawner"]
+position = Vector2( 164.234, 505.917 )
+
+[node name="3" type="Position2D" parent="Spawner"]
+position = Vector2( 128.367, 273.724 )
+
+[node name="4" type="Position2D" parent="Spawner"]
+position = Vector2( 820.227, 526.682 )
+
+[node name="5" type="Position2D" parent="Spawner"]
+position = Vector2( 709.793, 328.468 )
+
+[node name="6" type="Position2D" parent="Spawner"]
+position = Vector2( 910.839, 321.861 )
+
+[node name="7" type="Position2D" parent="Spawner"]
+position = Vector2( 436.07, 503.085 )
+
+[node name="8" type="Position2D" parent="Spawner"]
+position = Vector2( 287.882, 102.882 )
+
+[node name="Juno" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[node name="UI" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 640.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="ProgressBar" parent="UI"]
+margin_left = 386.669
+margin_top = 591.617
+margin_right = 641.669
+margin_bottom = 625.617
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+value = 50.0
+percent_visible = false
+
+[node name="Score" type="Label" parent="UI"]
+margin_left = 709.568
+margin_top = 581.378
+margin_right = 962.568
+margin_bottom = 680.378
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.239216, 0.25098, 0.278431, 1 )
+text = "Score
+"
