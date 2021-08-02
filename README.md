@@ -8,7 +8,7 @@ You are assigned to test the first working model of T69 blade 3000 in the advanc
 * WASD / Arrow keys : Movement
 * Click : Shoot blades
 
-## Credits
+## Acknowledgement
 * Kenney Vleugels (Kenney.nl) for Tilesets
 * AlexBeroza for Juno Sound Track
 * Morusque for 260809 Funky Nurykabe Sound Track
